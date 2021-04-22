@@ -26,6 +26,34 @@ it("should say hello", function() {
 // This is called "Red-Green-Refactor"
 // ========================================================
 
+it("area should equal w * h", function() {
+  const width = 5, height = 10, area = utils.area(width, height)
+
+  expect(width).to.be.a("number")
+  expect(height).to.be.a("number")
+  expect(area).to.be.a("number")
+  expect(area).to.equal(width * height)
+
+})
+
+it("perimeter should equal 2*w * h", function() {
+  const width = 2, height = 2, peri = 8
+
+  expect(width).to.be.a("number")
+  expect(height).to.be.a("number")
+  expect(peri).to.be.a("number")
+  expect(peri).to.equal(2*width + 2*height)
+
+})
+
+it("circle radius be 2 pie squared", function() {
+  const r = 5, area = utils.circleArea(r)
+
+  expect(r).to.not.be.a("null")
+  expect(r).to.be.a("number")
+  expect(area).to.be.a("number")
+  expect(area).to.equal(Math.exp(r*Math.PI))
+})
 
 
 
@@ -50,13 +78,38 @@ it("Should create a new (object) Item with name and price", function() {
   expect(item).to.have.property("quantity", 1)
 })
 
-it("Should return an array containing all items in cart")
+it("Should return an array containing all items in cart", function() {
+  const cart = utils.getShoppingCart()
+  expect(cart).to.be.a("array")
+})
 
-it("Should add a new item to the shopping cart")
 
-it("Should return the number of items in the cart")
+it("Should add a new item to the shopping cart", function() {
+  expect("apple").to.be.a("string")
+  expect(0.99).to.be.a("number")
 
-it("Should remove items from cart")
+  const cart = utils.getShoppingCart(),
+  item = utils.createItem("apple", 0.99),
+  lastCartSize = cart.length
+
+  expect(cart).to.be.a("array")
+  expect(item).to.be.a("object")
+  utils.addItemToCart(item)
+
+  const newCart = utils.getShoppingCart()
+
+  expect(newCart).to.be.a("array")
+  expect(newCart.length).to.equal(lastCartSize)
+})
+
+it("Should return the number of items in the cart", function() {
+  const cart = utils.getShoppingCart(), cartSize = cart.length
+  expect(cart).to.be.equal(cartSize)
+})
+
+it("Should remove items from cart"), function() {
+
+}
 
 // ========================================================
 // Stretch Challenges
