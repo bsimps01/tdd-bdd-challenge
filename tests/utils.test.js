@@ -108,6 +108,11 @@ it("Should return the number of items in the cart", function() {
 })
 
 it("Should remove items from cart"), function() {
+  const item = utils.createItem("apple", 0.99)
+  utils.addItemToCart(item)
+  expect(utils.getNumItemsInCart)
+  utils.removeItemFromCart(item)
+  expect(utils.getNumItemsInCart()).to.equal(0)
 
 }
 
